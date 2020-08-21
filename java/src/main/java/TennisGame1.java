@@ -2,12 +2,11 @@
 public class TennisGame1 implements TennisGame {
 
     Player player1;
-    private int m_score2 = 0;
-    private String player2Name;
+    Player player2;
 
     public TennisGame1(String player1Name, String player2Name) {
         player1 = new Player(player1Name);
-        this.player2Name = player2Name;
+        player2 = new Player(player2Name);
     }
 
     public void wonPoint(String playerName) {
@@ -15,17 +14,17 @@ public class TennisGame1 implements TennisGame {
             player1.score += 1;
         }
         else
-            m_score2 += 1;
+            player2.score += 1;
     }
 
     public String getScore() {
         String score = "";
         int tempScore=0;
-        if (player1.score==m_score2)
+        if (player1.score==player2.score)
         {
             score = getTieScore();
         }
-        else if (player1.score>=4 || m_score2>=4)
+        else if (player1.score>=4 || player2.score>=4)
         {
             score = getAdvantageScore();
         }
@@ -34,7 +33,10 @@ public class TennisGame1 implements TennisGame {
             for (int i=1; i<3; i++)
             {
                 if (i==1) tempScore = player1.score;
-                else { score+="-"; tempScore = m_score2;}
+                else {
+                    score+="-";
+                    tempScore = player2.score;
+                }
                 switch(tempScore)
                 {
                     case 0:
@@ -57,11 +59,11 @@ public class TennisGame1 implements TennisGame {
 
     private String getAdvantageScore() {
         String score;
-        int minusResult = player1.score-m_score2;
+        int minusResult = player1.score-player2.score;
         if (minusResult==1) score ="Advantage " + player1.playerName;
-        else if (minusResult ==-1) score ="Advantage " + player2Name;
+        else if (minusResult ==-1) score ="Advantage " + player2.playerName;
         else if (minusResult>=2) score = "Win for " + player1.playerName;
-        else score ="Win for " + player2Name;
+        else score ="Win for " + player2.playerName;
         return score;
     }
 
