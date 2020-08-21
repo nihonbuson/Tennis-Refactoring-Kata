@@ -8,10 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TennisGame1Test {
 
     TennisGame1 tennisGame1;
+    String player1Name = "player1";
+    String player2Name = "player2";
 
     @BeforeEach
     void _事前準備(){
-        tennisGame1 = new TennisGame1("player1", "player2");
+        tennisGame1 = new TennisGame1(player1Name, player2Name);
     }
 
     @Nested
@@ -24,32 +26,32 @@ public class TennisGame1Test {
 
         @Test
         public void _1_1の場合() {
-            wonPointBy("player1", 1);
-            wonPointBy("player2", 1);
+            wonPointBy(player1Name, 1);
+            wonPointBy(player2Name, 1);
             String score = tennisGame1.getScore();
             assertEquals("Fifteen-All",score);
         }
 
         @Test
         public void _2_2の場合() {
-            wonPointBy("player1", 2);
-            wonPointBy("player2", 2);
+            wonPointBy(player1Name, 2);
+            wonPointBy(player2Name, 2);
             String score = tennisGame1.getScore();
             assertEquals("Thirty-All",score);
         }
 
         @Test
         public void _3_3の場合() {
-            wonPointBy("player1", 3);
-            wonPointBy("player2", 3);
+            wonPointBy(player1Name, 3);
+            wonPointBy(player2Name, 3);
             String score = tennisGame1.getScore();
             assertEquals("Deuce",score);
         }
 
         @Test
         public void _4_4の場合() {
-            wonPointBy("player1", 4);
-            wonPointBy("player2", 4);
+            wonPointBy(player1Name, 4);
+            wonPointBy(player2Name, 4);
             String score = tennisGame1.getScore();
             assertEquals("Deuce",score);
         }
@@ -59,34 +61,45 @@ public class TennisGame1Test {
     class _どちらかが4点以上を取って差が付いている場合{
         @Test
         public void _4_3の場合() {
-            wonPointBy("player1", 4);
-            wonPointBy("player2", 3);
+            wonPointBy(player1Name, 4);
+            wonPointBy(player2Name, 3);
             String score = tennisGame1.getScore();
             assertEquals("Advantage player1",score);
         }
 
         @Test
         public void _5_3の場合() {
-            wonPointBy("player1", 5);
-            wonPointBy("player2", 3);
+            wonPointBy(player1Name, 5);
+            wonPointBy(player2Name, 3);
             String score = tennisGame1.getScore();
             assertEquals("Win for player1",score);
         }
 
         @Test
         public void _3_4の場合() {
-            wonPointBy("player1", 3);
-            wonPointBy("player2", 4);
+            wonPointBy(player1Name, 3);
+            wonPointBy(player2Name, 4);
             String score = tennisGame1.getScore();
             assertEquals("Advantage player2",score);
         }
 
         @Test
         public void _3_5の場合() {
-            wonPointBy("player1", 3);
-            wonPointBy("player2", 5);
+            wonPointBy(player1Name, 3);
+            wonPointBy(player2Name, 5);
             String score = tennisGame1.getScore();
             assertEquals("Win for player2",score);
+        }
+
+        @Test
+        public void _player名が違うパターン() {
+            TennisGame1 tennisGame1 = new TennisGame1("P1", "P2");
+            tennisGame1.wonPoint("P1");
+            tennisGame1.wonPoint("P1");
+            tennisGame1.wonPoint("P1");
+            tennisGame1.wonPoint("P1");
+            String score = tennisGame1.getScore();
+            assertEquals("Win for P1",score);
         }
     }
 
