@@ -1,6 +1,6 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TennisGame1Test {
     @Test
@@ -56,4 +56,6 @@ public class TennisGame1Test {
         String score = tennisGame1.getScore();
         assertEquals("Deuce",score);
     }
+
+
 }
