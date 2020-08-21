@@ -37,13 +37,13 @@ public class TennisGame1 implements TennisGame {
                     score+="-";
                     tempScore = player2.score;
                 }
-                score += getNormalScoreName(score, tempScore);
+                score += getNormalScoreName(tempScore);
             }
         }
         return score;
     }
 
-    private String getNormalScoreName(String score, int tempScore) {
+    private String getNormalScoreName(int tempScore) {
         switch(tempScore)
         {
             case 0:
