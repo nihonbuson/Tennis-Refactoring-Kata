@@ -58,13 +58,18 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getAdvantageScore() {
+        boolean isMoreScoreByPlayer1 = isMoreScore(player1, player2);
         String score;
         int minusResult = player1.score-player2.score;
         if (minusResult==1) score ="Advantage " + player1.playerName;
-        else if (minusResult ==-1) score ="Advantage " + player2.playerName;
         else if (minusResult>=2) score = "Win for " + player1.playerName;
+        else if (minusResult ==-1) score ="Advantage " + player2.playerName;
         else score ="Win for " + player2.playerName;
         return score;
+    }
+
+    private boolean isMoreScore(Player player1, Player player2) {
+        return player1.score > player2.score;
     }
 
     private String getTieScore() {
