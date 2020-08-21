@@ -19,7 +19,6 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        int tempScore=0;
         if (player1.score==player2.score)
         {
             return getTieScore();
@@ -30,11 +29,9 @@ public class TennisGame1 implements TennisGame {
         }
         else
         {
-            tempScore = player1.score;
-            score += getNormalScoreName(tempScore);
+            score += getNormalScoreName(player1.score);
             score+="-";
-            tempScore = player2.score;
-            score += getNormalScoreName(tempScore);
+            score += getNormalScoreName(player2.score);
         }
         return score;
     }
