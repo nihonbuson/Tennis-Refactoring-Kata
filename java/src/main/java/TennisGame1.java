@@ -28,23 +28,8 @@ public class TennisGame1 implements TennisGame {
         }
         else
         {
-            return getNormalScoreName(player1) + "-" + getNormalScoreName(player2);
+            return player1.getNormalScoreName() + "-" + player2.getNormalScoreName();
         }
-    }
-
-    private String getNormalScoreName(Player player) {
-        switch(player.score)
-        {
-            case 0:
-                return "Love";
-            case 1:
-                return "Fifteen";
-            case 2:
-                return "Thirty";
-            case 3:
-                return "Forty";
-        }
-        return "";
     }
 
     private String getAdvantageScore() {
