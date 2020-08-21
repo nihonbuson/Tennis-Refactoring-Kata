@@ -18,7 +18,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        if (player1.score==player2.score)
+        if (player1.isTieScore(player2))
         {
             return getTieScore();
         }
