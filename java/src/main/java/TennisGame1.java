@@ -50,16 +50,9 @@ public class TennisGame1 implements TennisGame {
 
 
     private String getTieScore() {
-        switch (player1.score)
-        {
-            case 0:
-                return "Love-All";
-            case 1:
-                return "Fifteen-All";
-            case 2:
-                return "Thirty-All";
-            default:
-                return "Deuce";
+        if(player1.score >= 3){
+            return "Deuce";
         }
+        return player1.getNormalScoreName() + "-All";
     }
 }
