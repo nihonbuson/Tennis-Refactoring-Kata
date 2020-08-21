@@ -17,4 +17,43 @@ public class TennisGame1Test {
         String score = tennisGame1.getScore();
         assertEquals("Fifteen-All",score);
     }
+
+    @Test
+    public void _2_2の場合() {
+        TennisGame1 tennisGame1 = new TennisGame1("player1", "player2");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player2");
+        tennisGame1.wonPoint("player2");
+        String score = tennisGame1.getScore();
+        assertEquals("Thirty-All",score);
+    }
+
+    @Test
+    public void _3_3の場合() {
+        TennisGame1 tennisGame1 = new TennisGame1("player1", "player2");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player2");
+        tennisGame1.wonPoint("player2");
+        tennisGame1.wonPoint("player2");
+        String score = tennisGame1.getScore();
+        assertEquals("Deuce",score);
+    }
+
+    @Test
+    public void _4_4の場合() {
+        TennisGame1 tennisGame1 = new TennisGame1("player1", "player2");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player1");
+        tennisGame1.wonPoint("player2");
+        tennisGame1.wonPoint("player2");
+        tennisGame1.wonPoint("player2");
+        tennisGame1.wonPoint("player2");
+        String score = tennisGame1.getScore();
+        assertEquals("Deuce",score);
+    }
 }
