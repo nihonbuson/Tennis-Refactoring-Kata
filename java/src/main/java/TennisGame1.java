@@ -1,6 +1,7 @@
 
 public class TennisGame1 implements TennisGame {
-    
+
+    Player player1;
     private int m_score1 = 0;
     private int m_score2 = 0;
     private String player1Name;
