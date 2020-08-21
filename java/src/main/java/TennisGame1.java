@@ -67,9 +67,9 @@ public class TennisGame1 implements TennisGame {
         }
     }
 
-    private String getAdvantageMessage(int minusResult, Player player12) {
-        if (minusResult == 1) return "Advantage " + player12.playerName;
-        else if (minusResult >= 2) return "Win for " + player12.playerName;
+    private String getAdvantageMessage(int minusResult, Player player) {
+        if (minusResult == 1) return "Advantage " + player.playerName;
+        else if (minusResult >= 2) return "Win for " + player.playerName;
         return "";
     }
 
