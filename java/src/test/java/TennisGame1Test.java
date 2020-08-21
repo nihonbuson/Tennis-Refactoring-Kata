@@ -62,5 +62,65 @@ public class TennisGame1Test {
         }
     }
 
+    @Nested
+    class _どちらかが4点以上を取って差が付いている場合{
+        @Test
+        public void _4_3の場合() {
+            TennisGame1 tennisGame1 = new TennisGame1("player1", "player2");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            String score = tennisGame1.getScore();
+            assertEquals("Advantage player1",score);
+        }
+
+        @Test
+        public void _5_3の場合() {
+            TennisGame1 tennisGame1 = new TennisGame1("player1", "player2");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            String score = tennisGame1.getScore();
+            assertEquals("Win for player1",score);
+        }
+
+        @Test
+        public void _3_4の場合() {
+            TennisGame1 tennisGame1 = new TennisGame1("player1", "player2");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            String score = tennisGame1.getScore();
+            assertEquals("Advantage player2",score);
+        }
+
+        @Test
+        public void _3_5の場合() {
+            TennisGame1 tennisGame1 = new TennisGame1("player1", "player2");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player1");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            tennisGame1.wonPoint("player2");
+            String score = tennisGame1.getScore();
+            assertEquals("Win for player2",score);
+        }
+    }
 
 }
