@@ -60,7 +60,6 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getTieScore() {
-        String score;
         switch (m_score1)
         {
             case 0:
