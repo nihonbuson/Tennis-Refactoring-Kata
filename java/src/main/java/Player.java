@@ -6,4 +6,9 @@ public class Player {
 
         this.playerName = playerName;
     }
+
+    public boolean isMoreScoreThan(Player player2) {
+        return this.score > player2.score;
+    }
+
 }

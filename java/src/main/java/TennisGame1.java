@@ -48,7 +48,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getAdvantageScore() {
-        boolean isMoreScoreByPlayer1 = isMoreScore(player1, player2);
+        boolean isMoreScoreByPlayer1 = player1.isMoreScoreThan(player2);
         int minusResult = Math.abs(player1.score-player2.score);
         if(isMoreScoreByPlayer1){
             return getAdvantageMessage(minusResult, player1);
@@ -63,9 +63,6 @@ public class TennisGame1 implements TennisGame {
         return "";
     }
 
-    private boolean isMoreScore(Player player1, Player player2) {
-        return player1.score > player2.score;
-    }
 
     private String getTieScore() {
         switch (player1.score)
