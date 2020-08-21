@@ -22,11 +22,11 @@ public class TennisGame1 implements TennisGame {
         int tempScore=0;
         if (player1.score==player2.score)
         {
-            score = getTieScore();
+            return getTieScore();
         }
         else if (player1.score>=4 || player2.score>=4)
         {
-            score = getAdvantageScore();
+            return getAdvantageScore();
         }
         else
         {
