@@ -62,12 +62,16 @@ public class TennisGame1 implements TennisGame {
         String score = "";
         int minusResult = Math.abs(player1.score-player2.score);
         if(isMoreScoreByPlayer1){
-            if (minusResult==1) score ="Advantage " + player1.playerName;
-            else if (minusResult>=2) score = "Win for " + player1.playerName;
+            score = getAdvantageMessage(score, minusResult, player1);
         } else {
-            if (minusResult ==1) score ="Advantage " + player2.playerName;
-            else if (minusResult>=2)  score ="Win for " + player2.playerName;
+            score = getAdvantageMessage(score, minusResult, player2);
         }
+        return score;
+    }
+
+    private String getAdvantageMessage(String score, int minusResult, Player player12) {
+        if (minusResult == 1) score = "Advantage " + player12.playerName;
+        else if (minusResult >= 2) score = "Win for " + player12.playerName;
         return score;
     }
 
