@@ -8,6 +8,7 @@ public class TennisGame1 implements TennisGame {
     private String player2Name;
 
     public TennisGame1(String player1Name, String player2Name) {
+        player1 = new Player(player1Name);
         this.player1Name = player1Name;
         this.player2Name = player2Name;
     }
