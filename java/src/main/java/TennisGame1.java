@@ -37,7 +37,7 @@ public class TennisGame1 implements TennisGame {
                     score+="-";
                     tempScore = player2.score;
                 }
-                score = getNormalScoreName(score, tempScore);
+                score += getNormalScoreName(score, tempScore);
             }
         }
         return score;
@@ -47,19 +47,15 @@ public class TennisGame1 implements TennisGame {
         switch(tempScore)
         {
             case 0:
-                score+="Love";
-                break;
+                return "Love";
             case 1:
-                score+="Fifteen";
-                break;
+                return "Fifteen";
             case 2:
-                score+="Thirty";
-                break;
+                return "Thirty";
             case 3:
-                score+="Forty";
-                break;
+                return "Forty";
         }
-        return score;
+        return "";
     }
 
     private String getAdvantageScore() {
