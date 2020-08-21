@@ -28,12 +28,12 @@ public class TennisGame1 implements TennisGame {
         }
         else
         {
-            return getNormalScoreName(player1.score) + "-" + getNormalScoreName(player2.score);
+            return getNormalScoreName(player1) + "-" + getNormalScoreName(player2);
         }
     }
 
-    private String getNormalScoreName(int tempScore) {
-        switch(tempScore)
+    private String getNormalScoreName(Player player) {
+        switch(player.score)
         {
             case 0:
                 return "Love";
