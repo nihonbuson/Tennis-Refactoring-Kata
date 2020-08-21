@@ -59,20 +59,18 @@ public class TennisGame1 implements TennisGame {
 
     private String getAdvantageScore() {
         boolean isMoreScoreByPlayer1 = isMoreScore(player1, player2);
-        String score = "";
         int minusResult = Math.abs(player1.score-player2.score);
         if(isMoreScoreByPlayer1){
-            score = getAdvantageMessage(score, minusResult, player1);
+            return getAdvantageMessage(minusResult, player1);
         } else {
-            score = getAdvantageMessage(score, minusResult, player2);
+            return getAdvantageMessage(minusResult, player2);
         }
-        return score;
     }
 
-    private String getAdvantageMessage(String score, int minusResult, Player player12) {
-        if (minusResult == 1) score = "Advantage " + player12.playerName;
-        else if (minusResult >= 2) score = "Win for " + player12.playerName;
-        return score;
+    private String getAdvantageMessage(int minusResult, Player player12) {
+        if (minusResult == 1) return "Advantage " + player12.playerName;
+        else if (minusResult >= 2) return "Win for " + player12.playerName;
+        return "";
     }
 
     private boolean isMoreScore(Player player1, Player player2) {
