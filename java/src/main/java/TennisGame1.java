@@ -22,7 +22,7 @@ public class TennisGame1 implements TennisGame {
         {
             return getTieScore();
         }
-        else if (player1.score>=4 || player2.score>=4)
+        else if (player1.isAdvantageScore() || player2.isAdvantageScore())
         {
             return getAdvantageScore();
         }

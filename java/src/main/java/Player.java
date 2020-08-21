@@ -29,4 +29,8 @@ public class Player {
         }
         return "";
     }
+
+    boolean isAdvantageScore() {
+        return score>=4;
+    }
 }
