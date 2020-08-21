@@ -1,5 +1,5 @@
 public class Player {
-    private String playerName;
+    String playerName;
 
     public Player(String playerName) {
 
