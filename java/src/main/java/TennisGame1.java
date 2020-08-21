@@ -30,15 +30,11 @@ public class TennisGame1 implements TennisGame {
         }
         else
         {
-            for (int i=1; i<3; i++)
-            {
-                if (i==1) tempScore = player1.score;
-                else {
-                    score+="-";
-                    tempScore = player2.score;
-                }
-                score += getNormalScoreName(tempScore);
-            }
+            tempScore = player1.score;
+            score += getNormalScoreName(tempScore);
+            score+="-";
+            tempScore = player2.score;
+            score += getNormalScoreName(tempScore);
         }
         return score;
     }
