@@ -103,6 +103,57 @@ public class TennisGame1Test {
         }
     }
 
+    @Nested
+    class _両方とも3点以下の得点かつ差が付いている場合{
+        @Test
+        public void _1_0の場合() {
+            wonPointBy(player1Name, 1);
+            wonPointBy(player2Name, 0);
+            String score = tennisGame1.getScore();
+            assertEquals("Fifteen-Love",score);
+        }
+
+        @Test
+        public void _2_0の場合() {
+            wonPointBy(player1Name, 2);
+            wonPointBy(player2Name, 0);
+            String score = tennisGame1.getScore();
+            assertEquals("Thirty-Love",score);
+        }
+
+        @Test
+        public void _3_0の場合() {
+            wonPointBy(player1Name, 3);
+            wonPointBy(player2Name, 0);
+            String score = tennisGame1.getScore();
+            assertEquals("Forty-Love",score);
+        }
+
+        @Test
+        public void _0_1の場合() {
+            wonPointBy(player1Name, 0);
+            wonPointBy(player2Name, 1);
+            String score = tennisGame1.getScore();
+            assertEquals("Love-Fifteen",score);
+        }
+
+        @Test
+        public void _0_2の場合() {
+            wonPointBy(player1Name, 0);
+            wonPointBy(player2Name, 2);
+            String score = tennisGame1.getScore();
+            assertEquals("Love-Thirty",score);
+        }
+
+        @Test
+        public void _0_3の場合() {
+            wonPointBy(player1Name, 0);
+            wonPointBy(player2Name, 3);
+            String score = tennisGame1.getScore();
+            assertEquals("Love-Forty",score);
+        }
+    }
+
     private void wonPointBy(String playerName, int point) {
         for(int i=0; i<point; i++){
             tennisGame1.wonPoint(playerName);
